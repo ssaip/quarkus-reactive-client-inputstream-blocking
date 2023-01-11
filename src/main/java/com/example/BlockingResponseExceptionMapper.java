@@ -12,6 +12,15 @@ public class BlockingResponseExceptionMapper implements ResponseExceptionMapper<
 
     @Override
     public Exception toThrowable(Response response) {
+
+        try {
+            // notice how this is perfectly fine and does not throw an exception because we have @Blocking
+            // with @NonBlocking this would already throw
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         var body = response.readEntity(JsonNode.class);
         System.out.println(body);
         return null;
