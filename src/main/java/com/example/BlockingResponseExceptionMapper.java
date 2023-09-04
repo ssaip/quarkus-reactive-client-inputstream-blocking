@@ -3,9 +3,9 @@ package com.example;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.eclipse.microprofile.rest.client.ext.ResponseExceptionMapper;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.Response;
 
 @ApplicationScoped
 public class BlockingResponseExceptionMapper implements ResponseExceptionMapper<Exception> {
